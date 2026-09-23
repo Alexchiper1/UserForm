@@ -39,6 +39,12 @@
         android:hint="E-mail"
         android:inputType="textEmailAddress" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:onClick="submit"/>
 
 
 </LinearLayout>
