@@ -30,19 +30,45 @@ public class MainActivity extends AppCompatActivity {
     public void submit(View view) {
         EditText txt = findViewById(R.id.name);
         EditText phone = findViewById(R.id.phone);
+        EditText pass = findViewById(R.id.pass);
+        EditText em = findViewById(R.id.email);
 
 
         String name = txt.getText().toString();
         String mobile = phone.getText().toString();
+        String password = pass.getText().toString();
+        String email = em.getText().toString();
 
-        if(!name.matches("[a-zA-Z]+")){
+        if(name.isEmpty()){
+            txt.setError("Must Write your name");
+            txt.requestFocus();
+            return;
+        }else if(!name.matches("[a-zA-Z]+")){
             txt.setError("Name must be a character");
             txt.requestFocus();
+            return;
         }
 
-        if(mobile.matches("[a-zA-Z]+")){
+        if(mobile.isEmpty()) {
+            phone.setError("Must Write your Mobile Number");
+            phone.requestFocus();
+            return;
+        }else if(mobile.matches("[a-zA-Z]+")){
             phone.setError("Phone must only contain numbers");
             phone.requestFocus();
+            return;
+        }
+
+        if(password.isEmpty()){
+            pass.setError("Can't leave password empty");
+            pass.requestFocus();
+            return;
+        }
+
+        if(email.isEmpty()){
+            em.setError("Can't leave Email empty");
+            em.requestFocus();
+            return;
         }
 
         Toast.makeText(this, "Thank you "+ name +", your request is being processed", Toast.LENGTH_SHORT).show();
