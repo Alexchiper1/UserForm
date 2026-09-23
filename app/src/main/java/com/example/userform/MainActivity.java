@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void submit(View view) {
-
+        EditText txt = findViewById(R.id.name);
+        String name = txt.getText().toString();
+        Toast.makeText(this, "Thank you "+ name +", your request is being processed", Toast.LENGTH_SHORT).show();
     }
 }
